@@ -10,7 +10,7 @@ public class SceneChange : MonoBehaviour
     /// ボタンから呼び出す想定
     /// </summary>
     /// <param name="name"> シーンの名前</param>
-    public void ChangeScene(string name)
+    public static void ChangeScene(string name)
     {
         if (name != "")
         {
