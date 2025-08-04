@@ -9,6 +9,7 @@ public class DragAndDropper : MonoBehaviour
     private Camera _mainCamera;
     private bool _isClicked;
     private string _name;
+    private GameObject _dragObject;
 
     private void Start()
     {
@@ -17,13 +18,20 @@ public class DragAndDropper : MonoBehaviour
 
     private void Update()
     {
+        if (_isClicked)
+        {
+            _dragObject.transform.position = _mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, _distance));
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             if (UpdateRaycast(out RaycastHit hit))
             {
-                if (hit.collider.TryGetComponent(out FoodElement food))
+                if (hit.collider.TryGetComponent(out IFood food))
                 {
-                   // _name = food.FoodName;
+                    _name = food.GetName();
+                    _dragObject = food.GetObject();
+
                     _isClicked = true;
                     Debug.Log(_name);
                 }
@@ -32,6 +40,8 @@ public class DragAndDropper : MonoBehaviour
         else if (Input.GetMouseButtonUp(0))
         {
             if (!_isClicked) { return; }
+            Destroy(_dragObject);
+
             if (UpdateRaycast(out RaycastHit hit))
             {
                 if (hit.collider.TryGetComponent(out CookingTool tool))

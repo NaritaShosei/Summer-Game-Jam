@@ -9,11 +9,17 @@ public class Food : MonoBehaviour, IFood
     {
         return _foodName;
     }
+
+    public GameObject GetObject()
+    {
+        return gameObject;
+    }
 }
 
 public interface IFood
 {
     string GetName();
+    GameObject GetObject();
 }
 
 public interface ITarget
