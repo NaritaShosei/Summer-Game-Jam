@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class FoodChecker : MonoBehaviour
 {
-    [SerializeField] GameObject FoodGameObject;
-    [SerializeField] Food Food;
-    [SerializeField] string FoodName;
-    void Start()
+    [SerializeField] TimeManager timeManager;
+    [SerializeField] float _time;
+    private void Update()
     {
-        Food = FoodGameObject.GetComponent<Food>();
-        FoodName = Food.FoodName;
+        _time = timeManager.Timer;
     }
 }
