@@ -24,12 +24,6 @@ public class ChefTask : MonoBehaviour
     bool _isGameOver = false;
     public bool IsGameOver { get { return _isGameOver; } }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
