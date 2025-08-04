@@ -6,9 +6,9 @@ using UnityEngine;
 public class RecipeData
 {
     [SerializeField] private string[] _foods;
-    [SerializeField] private CookingMethod _cookingType;
+    [SerializeField] private CookingMethod _cookingMethod;
     public string[] Foods => _foods;
-    public CookingMethod CookingType => _cookingType;
+    public CookingMethod CookingMethod => _cookingMethod;
 }
 public enum CookingMethod
 {

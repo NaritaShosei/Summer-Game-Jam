@@ -7,8 +7,9 @@ public class CookingData
 {
     [SerializeField] private string _foodName = "";
     [SerializeField] private RecipeData _recipeData;
-    // TODO:ここはコマンドのデータ
+    [SerializeField] private RecipeCommand _recipeCommand;
 
     public string FoodName => _foodName;
     public RecipeData RecipeData => _recipeData;
+    public RecipeCommand RecipeCommand => _recipeCommand;
 }
