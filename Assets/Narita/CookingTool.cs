@@ -23,6 +23,7 @@ public class CookingTool : MonoBehaviour, ITarget
     public void Cooking()
     {
         _cookingManager.RecipeCheck(_foods);
+        _foods.Clear();
     }
 
     public void SetName(string name)
