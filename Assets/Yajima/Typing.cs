@@ -49,6 +49,7 @@ public class Typing : MonoBehaviour
             Debug.Log(_typeKeyCode.ToString());
             //入力したキーをリストに追加
             _nowCommandList.Add(_typeKeyCode);
+            if (!_commandText) { return; }
             _commandText.text = GetNowCommandText();
         }
 
@@ -82,6 +83,7 @@ public class Typing : MonoBehaviour
     void ResetCommand()
     {
         _nowCommandList.Clear();
+        if (!_commandText) { return; }
         _commandText.text = GetNowCommandText();
     }
 

@@ -13,7 +13,7 @@ public class OrderManager : MonoBehaviour
     [SerializeField] private int _foodCount = 2;
     private RecipeData _recipe;
     private string _name;
-    [SerializeField] private CookingManager _cookingManager;
+    private CookingManager _cookingManager;
 
     public (RecipeData recipe, string name) Food => (_recipe, _name);
 
