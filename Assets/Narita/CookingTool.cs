@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CookingTool : MonoBehaviour
+public class CookingTool : MonoBehaviour,ITarget
 {
     [SerializeField] private CookingMethod _cookingMethod;
     private List<string> _foods = new();
@@ -17,10 +17,16 @@ public class CookingTool : MonoBehaviour
     public void AddFood(string food)
     {
         _foods.Add(food);
+        Debug.Log(string.Join(" ", _foods));
     }
 
     public void Cooking()
     {
         _cookingManager.RecipeCheck(_foods);
+    }
+
+    public void SetName(string name)
+    {
+        throw new System.NotImplementedException();
     }
 }
