@@ -96,6 +96,8 @@ public class OrderManager : MonoBehaviour
                 _recipe = pair.Value.recipe;
                 _name = pair.Value.name;
 
+                _cookingManager.AddRecipe(Food);
+
                 StringBuilder sb = new();
                 sb.Append($"料理名:{_name} ");
                 foreach (var item in _recipe.Foods)
