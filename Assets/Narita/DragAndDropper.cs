@@ -23,7 +23,7 @@ public class DragAndDropper : MonoBehaviour
             {
                 if (hit.collider.TryGetComponent(out FoodElement food))
                 {
-                    _name = food.FoodName;
+                   // _name = food.FoodName;
                     _isClicked = true;
                     Debug.Log(_name);
                 }
