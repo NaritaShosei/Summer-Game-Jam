@@ -7,11 +7,12 @@ public class FoodElement : MonoBehaviour, IFood
 
     public string GetName()
     {
+        
         return _foodName;
     }
 
-    public GameObject FoodPrefab()
+    public GameObject GetObject()
     {
-        return _foodPrefab;
+        return Instantiate(_foodPrefab, transform.position, Quaternion.identity);
     }
 }

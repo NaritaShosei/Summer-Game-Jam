@@ -5,23 +5,21 @@ using UnityEngine;
 public class Food : MonoBehaviour, IFood
 {
     [SerializeField] private string _foodName;
-
-    [SerializeField] private GameObject _foodPrefab;
     public string GetName()
     {
         return _foodName;
     }
 
-    public GameObject FoodPrefab()
+    public GameObject GetObject()
     {
-        return _foodPrefab;
+        return gameObject;
     }
 }
 
 public interface IFood
 {
     string GetName();
-    GameObject FoodPrefab();
+    GameObject GetObject();
 }
 
 public interface ITarget

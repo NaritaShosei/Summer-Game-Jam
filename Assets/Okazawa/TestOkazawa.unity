@@ -738,7 +738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _foodName: "\u3044\u304F\u3089"
-  _foodPrefab: {fileID: 0}
+  _foodPrefab: {fileID: 8717177159167995684, guid: f79a0b37930fb254d83409e0bc9bc50c, type: 3}
 --- !u!135 &1030318953
 SphereCollider:
   m_ObjectHideFlags: 0
