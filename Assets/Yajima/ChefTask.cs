@@ -48,7 +48,7 @@ public class ChefTask : MonoBehaviour
         }
         else
         {
-            if( _countDownCoroutine != null)
+            if (_countDownCoroutine != null)
             {
                 StopCoroutine(_countDownCoroutine);
                 _countDownCoroutine = null;
@@ -57,7 +57,7 @@ public class ChefTask : MonoBehaviour
             _isCountDownNow = false;
         }
     }
-    
+
     /// <summary>
     /// タスクをクリアした時にする処理
     /// </summary>
@@ -78,6 +78,7 @@ public class ChefTask : MonoBehaviour
             _delta -= Time.deltaTime;
             if (_delta <= 0)
             {
+                Debug.Log("TaskOverFlow");
                 _countDownText.text = "";
                 _isGameOver = true;
                 yield break;
