@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private CookingData[] _cookingDatas;
     private Dictionary<List<KeyCode>, (RecipeData recipe, string name)> _cookingDictionary = new();
-    private List<string> _strings = new();
+    private List<string> _baseNames = new();
+    private List<string> _names = new();
     [SerializeField] private int _foodCount = 2;
 
     void Start()
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
                 continue;
             }
             _cookingDictionary.Add(data.RecipeCommand.KeyList, (data.RecipeData, data.FoodName));
+            _baseNames.Add(data.FoodName);
         }
 
         // Debug用
@@ -35,7 +37,19 @@ public class GameManager : MonoBehaviour
             sb.Append($"調理方法:{data.Value.recipe.CookingMethod}\n");
         }
         Debug.Log(sb.ToString());
+
+        for (int i = 0; i < _foodCount; i++)
+        {
+            string name = _baseNames[Random.Range(0, _baseNames.Count)];
+            while (_names.Contains(name))
+            {
+                name = _baseNames[Random.Range(0, _baseNames.Count)];
+            }
+            _names.Add(name);
+        }
     }
+
+
 
     private bool IsCommandCheck(List<KeyCode> command)
     {
