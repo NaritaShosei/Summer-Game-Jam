@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CookingTool : MonoBehaviour,ITarget
+public class CookingTool : MonoBehaviour, ITarget
 {
     [SerializeField] private CookingMethod _cookingMethod;
     private List<string> _foods = new();
@@ -27,6 +27,7 @@ public class CookingTool : MonoBehaviour,ITarget
 
     public void SetName(string name)
     {
-        throw new System.NotImplementedException();
+        _foods.Add(name);
+        Debug.Log(string.Join(" ", _foods));
     }
 }

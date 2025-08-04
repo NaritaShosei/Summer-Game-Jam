@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Food : MonoBehaviour, IFood
 {
+    [SerializeField] private string _foodName;
     public string GetName()
     {
-        throw new System.NotImplementedException();
+        return _foodName;
     }
 }
 
