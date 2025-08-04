@@ -6,18 +6,16 @@ using UnityEngine;
 public class RecipeData
 {
     [SerializeField] private string[] _foods;
-    [SerializeField] private CookingType _cookingType;
+    [SerializeField] private CookingMethod _cookingType;
     public string[] Foods => _foods;
-    public CookingType CookingType => _cookingType;
+    public CookingMethod CookingType => _cookingType;
 }
-public enum CookingType
+public enum CookingMethod
 {
-    // 生
-    None = 0,
-    // 煮る
-    Simmer = 1,
-    // 焼く
-    Bake = 2,
-    // 揚げる
-    Fire = 3,
+    [InspectorName("煮る")]
+    Simmer = 0,
+    [InspectorName("焼く")]
+    Bake = 1,
+    [InspectorName("揚げる")]
+    Fry = 2,
 }
