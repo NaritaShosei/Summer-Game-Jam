@@ -1,71 +1,75 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Typing : MonoBehaviour
 {
-    [SerializeField, Tooltip("ƒRƒ}ƒ“ƒh‚ğ•\¦‚·‚éƒeƒLƒXƒg")] Text _commandText;
+    [SerializeField, Tooltip("ã‚³ãƒãƒ³ãƒ‰ã‚’è¡¨ç¤ºã™ã‚‹ãƒ†ã‚­ã‚¹ãƒˆ")] Text _commandText;
 
-    /// <summary>Œ»İ“ü—Í’†‚ÌƒRƒ}ƒ“ƒh‚ÌƒŠƒXƒg</summary>
-    List<KeyCode> _nowCommandList;
-    /// <summary>Œ»İ“ü—Í’†‚ÌƒRƒ}ƒ“ƒh</summary>
-    KeyCode _typeKeyCode;
+    /// <summary>ç¾åœ¨å…¥åŠ›ä¸­ã®ã‚³ãƒãƒ³ãƒ‰ã®ãƒªã‚¹ãƒˆ</summary>
+    List<Arrow> _nowCommandList;
+    /// <summary>ç¾åœ¨å…¥åŠ›ä¸­ã®ã‚³ãƒãƒ³ãƒ‰</summary>
+    Arrow _typeKeyCode;
+    private OrderManager _orderManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        _nowCommandList = new List<KeyCode>();
+        _nowCommandList = new List<Arrow>();
+        _orderManager = FindAnyObjectByType<OrderManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //“ü—Íó‚¯æ‚è‚Ì‰Šú‰»
-        _typeKeyCode = KeyCode.None;
+        //å…¥åŠ›å—ã‘å–ã‚Šã®åˆæœŸåŒ–
+        _typeKeyCode = Arrow.None;
 
-        //“ü—Íó‚¯æ‚è
+        //å…¥åŠ›å—ã‘å–ã‚Š
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            _typeKeyCode = KeyCode.DownArrow;
+            _typeKeyCode = Arrow.DownArrow;
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            _typeKeyCode = KeyCode.UpArrow;
+            _typeKeyCode = Arrow.UpArrow;
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            _typeKeyCode = KeyCode.LeftArrow;
+            _typeKeyCode = Arrow.LeftArrow;
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            _typeKeyCode = KeyCode.RightArrow;
+            _typeKeyCode = Arrow.RightArrow;
         }
 
-        //–îˆó‚Ì‚Ç‚ê‚©‚ª‰Ÿ‚³‚ê‚½‚ç
-        if (_typeKeyCode != KeyCode.None)
+        //çŸ¢å°ã®ã©ã‚Œã‹ãŒæŠ¼ã•ã‚ŒãŸã‚‰
+        if (_typeKeyCode != Arrow.None)
         {
             Debug.Log(_typeKeyCode.ToString());
-            //“ü—Í‚µ‚½ƒL[‚ğƒŠƒXƒg‚É’Ç‰Á
+            //å…¥åŠ›ã—ãŸã‚­ãƒ¼ã‚’ãƒªã‚¹ãƒˆã«è¿½åŠ 
             _nowCommandList.Add(_typeKeyCode);
             _commandText.text = GetNowCommandText();
         }
 
-        //ƒGƒ“ƒ^[ƒL[“ü—Í
+        //ã‚¨ãƒ³ã‚¿ãƒ¼ã‚­ãƒ¼å…¥åŠ›
         if (Input.GetKeyDown(KeyCode.Return))
         {
             Debug.Log("Order");
-            GetNowCommand();
-            //ƒRƒ}ƒ“ƒh‚ğ‰Šú‰»
+
+            _orderManager.CommandEnter(_nowCommandList);
+            //ã‚³ãƒãƒ³ãƒ‰ã‚’åˆæœŸåŒ–
             ResetCommand();
         }
     }
 
     /// <summary>
-    /// Œ»İ‚Ü‚Å‚É“ü—Í‚µ‚½ƒRƒ}ƒ“ƒh‚ğ•Ô‚·ŠÖ”
+    /// ç¾åœ¨ã¾ã§ã«å…¥åŠ›ã—ãŸã‚³ãƒãƒ³ãƒ‰ã‚’è¿”ã™é–¢æ•°
     /// </summary>
-    /// <returns> Œ»İ“ü—Í’†‚ÌƒRƒ}ƒ“ƒh</returns>
-    public List<KeyCode> GetNowCommand()
+    /// <returns> ç¾åœ¨å…¥åŠ›ä¸­ã®ã‚³ãƒãƒ³ãƒ‰</returns>
+    public List<Arrow> GetNowCommand()
     {
-        foreach (KeyCode keyCode in _nowCommandList)
+        foreach (Arrow keyCode in _nowCommandList)
         {
             Debug.Log(keyCode.ToString());
         }
@@ -73,7 +77,7 @@ public class Typing : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒRƒ}ƒ“ƒh‚ğ‰Šú‰»‚·‚éŠÖ”
+    /// ã‚³ãƒãƒ³ãƒ‰ã‚’åˆæœŸåŒ–ã™ã‚‹é–¢æ•°
     /// </summary>
     void ResetCommand()
     {
@@ -82,28 +86,28 @@ public class Typing : MonoBehaviour
     }
 
     /// <summary>
-    /// Œ»İ“ü—Í‚µ‚½ƒRƒ}ƒ“ƒh‚ğ•¶š—ñ‚Å•Ô‚·ŠÖ”
+    /// ç¾åœ¨å…¥åŠ›ã—ãŸã‚³ãƒãƒ³ãƒ‰ã‚’æ–‡å­—åˆ—ã§è¿”ã™é–¢æ•°
     /// </summary>
-    /// <returns> Œ»İ“ü—Í’†‚ÌƒRƒ}ƒ“ƒh‚Ì•¶š—ñ</returns>
+    /// <returns> ç¾åœ¨å…¥åŠ›ä¸­ã®ã‚³ãƒãƒ³ãƒ‰ã®æ–‡å­—åˆ—</returns>
     string GetNowCommandText()
     {
         string returnText = "";
-        //•\¦‚·‚éƒRƒ}ƒ“ƒh‚ğì¬
+        //è¡¨ç¤ºã™ã‚‹ã‚³ãƒãƒ³ãƒ‰ã‚’ä½œæˆ
         for (int i = 0; i < _nowCommandList.Count; i++)
         {
             switch (_nowCommandList[i])
             {
-                case KeyCode.LeftArrow:
-                    returnText += "<color=red>©</color>";
+                case Arrow.LeftArrow:
+                    returnText += "<color=red>â†</color>";
                     break;
-                case KeyCode.RightArrow:
-                    returnText += "<color=blue>¨</color>";
+                case Arrow.RightArrow:
+                    returnText += "<color=blue>â†’</color>";
                     break;
-                case KeyCode.UpArrow:
-                    returnText += "<color=green>ª</color>";
+                case Arrow.UpArrow:
+                    returnText += "<color=green>â†‘</color>";
                     break;
-                case KeyCode.DownArrow:
-                    returnText += "<color=yellow>«</color>";
+                case Arrow.DownArrow:
+                    returnText += "<color=yellow>â†“</color>";
                     break;
                 default:
                     break;
@@ -113,4 +117,12 @@ public class Typing : MonoBehaviour
 
         return returnText;
     }
+}
+public enum Arrow
+{
+    None = 0,
+    UpArrow = 1,
+    DownArrow = 2,
+    RightArrow = 3,
+    LeftArrow = 4,
 }
