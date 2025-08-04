@@ -106,6 +106,7 @@ public class OrderManager : MonoBehaviour
                 }
                 sb.Append($"調理方法:{_recipe.CookingMethod}\n");
                 Debug.Log(sb.ToString());
+                break;
             }
         }
     }
