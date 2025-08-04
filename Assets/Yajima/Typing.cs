@@ -50,9 +50,10 @@ public class Typing : MonoBehaviour
             Debug.Log(_typeKeyCode.ToString());
             //入力したキーをリストに追加
             _nowCommandList.Add(_typeKeyCode);
+            GetNowCommandFunc().Invoke();
+
             if (!_commandText) { return; }
             _commandText.text = GetNowCommandText();
-            GetNowCommandFunc().Invoke();
         }
 
         //エンターキー入力
