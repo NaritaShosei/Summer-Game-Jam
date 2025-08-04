@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -51,6 +52,7 @@ public class Typing : MonoBehaviour
             _nowCommandList.Add(_typeKeyCode);
             if (!_commandText) { return; }
             _commandText.text = GetNowCommandText();
+            GetNowCommandFunc().Invoke();
         }
 
         //エンターキー入力
@@ -119,7 +121,13 @@ public class Typing : MonoBehaviour
 
         return returnText;
     }
+
+    public Func<string> GetNowCommandFunc()
+    {
+        return () => GetNowCommandText();
+    }
 }
+
 public enum Arrow
 {
     None = 0,
