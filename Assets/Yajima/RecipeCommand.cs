@@ -1,13 +1,13 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
 public class RecipeCommand
 {
-    [SerializeField] List<KeyCode> _keyList = new List<KeyCode>();
+    [SerializeField] List<Arrow> _keyList = new List<Arrow>();
 
     /// <summary>
-    /// ƒRƒ}ƒ“ƒhî•ñ‚ğæ“¾‚·‚éƒvƒƒpƒeƒB
+    /// ã‚³ãƒãƒ³ãƒ‰æƒ…å ±ã‚’å–å¾—ã™ã‚‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
     /// </summary>
-    public List<KeyCode> KeyList { get { return _keyList; } }
+    public List<Arrow> KeyList { get { return _keyList; } }
 }
