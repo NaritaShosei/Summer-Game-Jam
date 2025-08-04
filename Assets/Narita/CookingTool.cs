@@ -17,6 +17,7 @@ public class CookingTool : MonoBehaviour
     public void AddFood(string food)
     {
         _foods.Add(food);
+        Debug.Log(string.Join(" ", _foods));
     }
 
     public void Cooking()
