@@ -21,7 +21,7 @@ public class DragAndDropper : MonoBehaviour
         {
             if (UpdateRaycast(out RaycastHit hit))
             {
-                if (hit.collider.TryGetComponent(out Food food))
+                if (hit.collider.TryGetComponent(out FoodElement food))
                 {
                     _name = food.FoodName;
                     _isClicked = true;
