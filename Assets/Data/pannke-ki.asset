@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 870d8e09098dc2b489af012aec5a41e8, type: 3}
-  m_Name: ImageData 4
+  m_Name: pannke-ki
   m_EditorClassIdentifier: 
-  _name: "\u95C7"
-  _sprite: {fileID: 0}
+  _name: "\u30D1\u30F3\u30B1\u30FC\u30AD"
+  _sprite: {fileID: 21300000, guid: 7e8831872fbe28e4190ba1b984ab624c, type: 3}

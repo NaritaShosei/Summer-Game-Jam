@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 870d8e09098dc2b489af012aec5a41e8, type: 3}
-  m_Name: ImageData 8
+  m_Name: komugi
   m_EditorClassIdentifier: 
-  _name: "\u304A\u306B\u304E\u308A"
+  _name: "\u5C0F\u9EA6"
   _sprite: {fileID: 0}
