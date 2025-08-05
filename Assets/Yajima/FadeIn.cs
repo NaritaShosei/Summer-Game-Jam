@@ -2,9 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// フェードインするイメージに直接アタッチする想定
+/// </summary>
 public class FadeIn : MonoBehaviour
 {
-
     [SerializeField] int _fadeCount = 8;
     [SerializeField] float _fadeOutTime = 1;
 

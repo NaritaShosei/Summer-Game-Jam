@@ -9,6 +9,7 @@ public class SceneChange : MonoBehaviour
     [SerializeField] Image _fadeImage;
     [SerializeField] int _fadeCount = 8;
     [SerializeField] float _fadeOutTime = 1;
+    [SerializeField] string _inGameSceneName;
 
     float _delta = 0;
     float _fadeTime = 0;
@@ -28,7 +29,7 @@ public class SceneChange : MonoBehaviour
     {
         if (name != "")
         {
-            if (name == "Test2")
+            if (name == _inGameSceneName)
             {
                 _fadeImage.enabled = true;
                 StartCoroutine(FadeOut(name));
