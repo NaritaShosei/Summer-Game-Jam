@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87cc87acfc727fe47903d0fae98e2b50, type: 3}
-  m_Name: ImageDataBase 1
+  m_Script: {fileID: 11500000, guid: 870d8e09098dc2b489af012aec5a41e8, type: 3}
+  m_Name: ImageData
   m_EditorClassIdentifier: 
-  _imageData:
-  - {fileID: 0}
-  - {fileID: 0}
-  _simmerImage: {fileID: 0}
-  _bakeImage: {fileID: 0}
-  _fryImage: {fileID: 0}
+  _name: "\u3044\u304F\u3089"
+  _sprite: {fileID: 21300000, guid: 2baea92fed8fd7341b06f9d67d8bb28d, type: 3}
