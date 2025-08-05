@@ -24,6 +24,11 @@ public class OrderManager : MonoBehaviour
     /// </summary>
     public (RecipeData recipe, string name) Food => (_recipe, _name);
 
+    /// <summary>
+    /// 現在利用可能なキー入力パターンを取得するプロパティ
+    /// </summary>
+    public List<List<Arrow>> Keys { get { return _keys; } }
+
     void Start()
     {
         // 料理管理システムを取得
@@ -117,6 +122,36 @@ public class OrderManager : MonoBehaviour
     /// <param name="command">入力されたコマンド</param>
     public void CommandEnter(List<Arrow> command)
     {
+        foreach (var key in _keys)
+        {
+            //現在入力可能なコマンドとの比較
+            if (AreKeyListsEqual(key, command))
+            {
+                var pair = _cookingDictionary[key];
+                // 対応する料理が見つかった場合、レシピと名前を設定
+                _recipe = pair.recipe;
+                _name = pair.name;
+
+                // 料理管理システムにレシピを追加
+                _cookingManager.AddRecipe(Food);
+
+                // Debug用：選択された料理情報をログ出力
+                StringBuilder sb = new();
+                sb.Append($"料理名:{_name} ");
+                foreach (var item in _recipe.Foods)
+                {
+                    sb.Append($"食材:{item} ");
+                }
+                sb.Append($"調理方法:{_recipe.CookingMethod}\n");
+                Debug.Log(sb.ToString());
+
+                //選択されたコマンドに対応する料理を現在入力可能なリストから削除
+                _keys.Remove(key);
+                break;
+            }
+        }
+
+        /*
         // 入力されたコマンドに対応する料理を辞書から検索
         foreach (var pair in _cookingDictionary)
         {
@@ -140,7 +175,7 @@ public class OrderManager : MonoBehaviour
                 Debug.Log(sb.ToString());
                 break;
             }
-        }
+        }*/
     }
 
     /// <summary>
@@ -159,5 +194,22 @@ public class OrderManager : MonoBehaviour
             if (a[i] != b[i]) return false;
         }
         return true;
+    }
+
+    /// <summary>
+    /// コマンドに対応した料理の名前を取得する関数
+    /// </summary>
+    /// <param name="keys"> 取得したい料理のコマンド</param>
+    /// <returns> 料理名</returns>
+    public string GetFoodName(List<Arrow> keys)
+    {
+        foreach (var pair in _cookingDictionary)
+        {
+            if (AreKeyListsEqual(pair.Key, keys))
+            {
+                return _cookingDictionary[keys].name;
+            }
+        }
+        return null;
     }
 }
