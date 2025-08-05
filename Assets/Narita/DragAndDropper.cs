@@ -18,9 +18,9 @@ public class DragAndDropper : MonoBehaviour
 
     private void Update()
     {
-        if (_isClicked)
+        if (_isClicked && _dragObject)
         {
-            _dragObject.transform.position = _mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, _distance, Input.mousePosition.z));
+            _dragObject.transform.position = _mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, _distance));
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -41,7 +41,7 @@ public class DragAndDropper : MonoBehaviour
         {
             if (!_isClicked) { return; }
             Destroy(_dragObject);
-
+            _dragObject = null;
             if (UpdateRaycast(out RaycastHit hit))
             {
                 if (hit.collider.TryGetComponent(out ITarget target))
