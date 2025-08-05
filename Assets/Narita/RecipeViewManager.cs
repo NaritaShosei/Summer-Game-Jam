@@ -6,9 +6,6 @@ public class RecipeViewManager : MonoBehaviour
     [SerializeField] private RecipeView[] _recipeViews;
     private ImageManager _imageManager;
 
-    // 表示中のデータ
-    private readonly Queue<(RecipeData recipe, string name)> _queue = new();
-
     private void Start()
     {
         _imageManager = FindAnyObjectByType<ImageManager>();
@@ -19,26 +16,7 @@ public class RecipeViewManager : MonoBehaviour
         }
     }
 
-    public void AddView((RecipeData recipe, string name) data)
-    {
-        // 上限に達していたら追加しない
-        if (_queue.Count >= _recipeViews.Length)
-            return;
-
-        _queue.Enqueue(data);
-        UpdateViews();
-    }
-
-    public void RemoveView()
-    {
-        if (_queue.Count == 0)
-            return;
-
-        _queue.Dequeue();
-        UpdateViews();
-    }
-
-    private void UpdateViews()
+    public void UpdateViews(Queue<(RecipeData recipe, string name)> recipes)
     {
         // 全て非表示
         foreach (var view in _recipeViews)
@@ -46,9 +24,9 @@ public class RecipeViewManager : MonoBehaviour
             view.gameObject.SetActive(false);
         }
 
-        // キューの順番で再セット
-        var array = _queue.ToArray();
-        for (int i = 0; i < array.Length; i++)
+        // 渡されたキューから順にセット
+        var array = recipes.ToArray();
+        for (int i = 0; i < array.Length && i < _recipeViews.Length; i++)
         {
             var data = array[i];
             var dataBase = _imageManager.DataBase;
