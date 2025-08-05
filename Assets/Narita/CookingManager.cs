@@ -10,39 +10,56 @@ public class CookingManager : MonoBehaviour
     private Queue<(RecipeData recipe, string name)> _recipes = new();
     public Queue<(RecipeData recipe, string name)> Recipes => _recipes;
     private RecipeViewManager _recipeViewManager;
+    private OrderManager _orderManager;
 
     private void Start()
     {
         _recipeViewManager = FindAnyObjectByType<RecipeViewManager>();
+        _orderManager = FindAnyObjectByType<OrderManager>();
     }
 
     public void AddRecipe((RecipeData recipe, string name) recipe)
     {
         _recipes.Enqueue(recipe);
-        _recipeViewManager.AddView(recipe);
+        _recipeViewManager.UpdateViews(_recipes);
+        Debug.LogError(_recipes.Count.ToString());
     }
 
     public void CheckFood(string name)
     {
+        if (_recipes.Count == 0) { return; }
         if (_recipes.Peek().name == name)
         {
             _recipes.Dequeue();
-            _recipeViewManager.RemoveView();
+            _recipeViewManager.UpdateViews(_recipes);
             return;
         }
     }
 
     public void RecipeCheck(List<string> foods)
     {
-        if (_recipes.Count == 0) { return; }
-        if (ListsEqual(_recipes.Peek().recipe.Foods.ToList(), foods))
+        foreach (var recipe in _orderManager.CookingDictionary.Values)
         {
-            Debug.Log(_recipes.Peek().name);
-            Instantiate(_recipes.Dequeue().recipe.FoodPrefab, _spawn.position, Quaternion.identity);
+            if (ListsEqual(recipe.recipe.Foods.ToList(), foods))
+            {
+                Debug.Log($"レシピ完成: {recipe.name}");
 
-            return;
+                if (recipe.recipe.FoodPrefab != null)
+                {
+                    Instantiate(recipe.recipe.FoodPrefab, _spawn.position, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError($"料理 {recipe.name} のプレハブが設定されていません");
+                }
+            }
+            else
+            {
+                Debug.Log("レシピと材料が一致しません");
+                Debug.Log($"必要な材料: [{string.Join(", ", recipe.recipe.Foods)}]");
+                Debug.Log($"投入した材料: [{string.Join(", ", foods)}]");
+            }
         }
-        Debug.Log("何もかもが違う");
     }
     private bool ListsEqual(List<string> a, List<string> b)
     {

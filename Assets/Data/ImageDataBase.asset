@@ -13,9 +13,28 @@ MonoBehaviour:
   m_Name: ImageDataBase
   m_EditorClassIdentifier: 
   _imageData:
+  - {fileID: 11400000, guid: ffd7031cbbb3d914fb9832e8c243d51d, type: 2}
+  - {fileID: 11400000, guid: 0454f647c9d333e46b4f72ec8bd25900, type: 2}
+  - {fileID: 11400000, guid: 046143cab488b054d9e2aec7ed80898b, type: 2}
+  - {fileID: 11400000, guid: 53966de0fe5fa9b43bc01b1b88b303f5, type: 2}
   - {fileID: 11400000, guid: 7c6ca5ef78deb6242bf188dff9dae6d3, type: 2}
-  - {fileID: 11400000, guid: 35dfcb3b2e1c73b4897944d8e15b45fc, type: 2}
+  - {fileID: 11400000, guid: 551cd9fa2ba0282478afc4d2dca9bdde, type: 2}
+  - {fileID: 11400000, guid: 936630fef59de2d46bb3b0a2232d4fcd, type: 2}
+  - {fileID: 11400000, guid: 5173a157f19c3ac45b2f374a1cbaff3e, type: 2}
+  - {fileID: 11400000, guid: d6f598ed6a58a8c4a838f78b551ae8a9, type: 2}
+  - {fileID: 11400000, guid: c02aa3fcdc45325409c909da9c0df3e7, type: 2}
   - {fileID: 11400000, guid: eb8bc21fe9bd14a4a90334b3817be5c7, type: 2}
-  _simmerImage: {fileID: 21300000, guid: 19ed5faa49d7ebf44a5f26d03af3591b, type: 3}
-  _bakeImage: {fileID: 21300000, guid: 70f42df1cc9abfd41a8888dcd297fe7c, type: 3}
-  _fryImage: {fileID: 21300000, guid: 6a8abe0b16d150d40b03396b7e68de6f, type: 3}
+  - {fileID: 11400000, guid: 7a73d58b605d8384c8a46243f5b996b7, type: 2}
+  - {fileID: 11400000, guid: 7706e4590196f044cb1a4a7e3c118cc2, type: 2}
+  - {fileID: 11400000, guid: 35dfcb3b2e1c73b4897944d8e15b45fc, type: 2}
+  - {fileID: 11400000, guid: 53e32afb49a888245a4cdea24630eed3, type: 2}
+  - {fileID: 11400000, guid: ec932483a20aa864497585df3e2a4872, type: 2}
+  - {fileID: 11400000, guid: 26299425298d48243beb9c116f0ba1a0, type: 2}
+  - {fileID: 11400000, guid: 2d4db792315263141af46ca4a73955b0, type: 2}
+  - {fileID: 11400000, guid: e967dc88cd03bd34aa2bbfe13cded5d1, type: 2}
+  - {fileID: 11400000, guid: 5497745ed87f7a243aef94a457f645f0, type: 2}
+  - {fileID: 11400000, guid: 32919b61dc894b54a9b57e1d9aecfd7b, type: 2}
+  - {fileID: 11400000, guid: f777430b8b0bfb84d88232724646de80, type: 2}
+  _simmerImage: {fileID: 21300000, guid: 1ec24d1a3d43da945b31a5a38268d77d, type: 3}
+  _bakeImage: {fileID: 21300000, guid: 51cc5b20f68071f448e0af7fdead9c5c, type: 3}
+  _fryImage: {fileID: 21300000, guid: 2a0ae2514b14f4147900ecd8360bb2d5, type: 3}

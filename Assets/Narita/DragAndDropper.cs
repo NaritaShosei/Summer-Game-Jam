@@ -18,7 +18,7 @@ public class DragAndDropper : MonoBehaviour
 
     private void Update()
     {
-        if (_isClicked)
+        if (_isClicked && _dragObject)
         {
             _dragObject.transform.position = _mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, _distance));
         }
@@ -41,12 +41,12 @@ public class DragAndDropper : MonoBehaviour
         {
             if (!_isClicked) { return; }
             Destroy(_dragObject);
-
+            _dragObject = null;
             if (UpdateRaycast(out RaycastHit hit))
             {
-                if (hit.collider.TryGetComponent(out CookingTool tool))
+                if (hit.collider.TryGetComponent(out ITarget target))
                 {
-                    tool.AddFood(_name);
+                    target.SetName(_name);
                 }
             }
             _isClicked = false;
@@ -63,9 +63,9 @@ public class DragAndDropper : MonoBehaviour
 
         Ray ray = new Ray(worldPos, _mainCamera.transform.forward);
 
-        if (Physics.Raycast(ray, out hit, _distance))
+        if (Physics.Raycast(ray, out hit, 100))// マジックナンバーはよくないよ。マネしないでね。
         {
-            Debug.Log($"Hit: {hit.collider.name} at distance {hit.distance}");
+            Debug.Log($"Hit: {hit.point} at distance {hit.distance}");
             Debug.DrawLine(ray.origin, hit.point, Color.red);
             return true;
         }
