@@ -44,9 +44,9 @@ public class DragAndDropper : MonoBehaviour
 
             if (UpdateRaycast(out RaycastHit hit))
             {
-                if (hit.collider.TryGetComponent(out CookingTool tool))
+                if (hit.collider.TryGetComponent(out ITarget target))
                 {
-                    tool.AddFood(_name);
+                    target.SetName(_name);
                 }
             }
             _isClicked = false;
