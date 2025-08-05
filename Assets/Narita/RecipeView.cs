@@ -1,23 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class RecipeView : MonoBehaviour
 {
-    private ImageManager _imageManager;
     [SerializeField] private Image _foodImage;
     [SerializeField] private Image[] _images;
     [SerializeField] private Image _methodImage;
+    private CanvasGroup _canvasGroup;
 
-    private void Start()
+    private void Awake()
     {
-        _imageManager = FindAnyObjectByType<ImageManager>();
+        _canvasGroup = GetComponent<CanvasGroup>();
+        if (_canvasGroup == null)
+        {
+            _canvasGroup = gameObject.AddComponent<CanvasGroup>();
+        }
     }
 
     public void SetRecipe(Sprite food, Sprite[] foodElement, Sprite method)
     {
-        gameObject.SetActive(true);
+        Show();
 
         _foodImage.sprite = food;
 
@@ -33,6 +35,21 @@ public class RecipeView : MonoBehaviour
                 _images[i].gameObject.SetActive(true);
             }
         }
+
         _methodImage.sprite = method;
+    }
+
+    public void Hide()
+    {
+        _canvasGroup.alpha = 0;
+        _canvasGroup.interactable = false;
+        _canvasGroup.blocksRaycasts = false;
+    }
+
+    public void Show()
+    {
+        _canvasGroup.alpha = 1;
+        _canvasGroup.interactable = true;
+        _canvasGroup.blocksRaycasts = true;
     }
 }
