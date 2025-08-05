@@ -24,6 +24,7 @@ public class CookingManager : MonoBehaviour
 
     public void CheckFood(string name)
     {
+        if (_recipes.Count == 0) { return;}
         if (_recipes.Peek().name == name)
         {
             _recipes.Dequeue();
