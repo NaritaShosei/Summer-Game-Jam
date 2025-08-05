@@ -56,22 +56,17 @@ public class DragAndDropper : MonoBehaviour
 
     private bool UpdateRaycast(out RaycastHit hit)
     {
-        Vector3 screenPos = Input.mousePosition;
-        screenPos.z = _distance;
+        Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
 
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
-
-        Ray ray = new Ray(worldPos, _mainCamera.transform.forward);
-
-        if (Physics.Raycast(ray, out hit, 100))// マジックナンバーはよくないよ。マネしないでね。
+        if (Physics.Raycast(ray, out hit, 100))
         {
             Debug.Log($"Hit: {hit.point} at distance {hit.distance}");
-            Debug.DrawLine(ray.origin, hit.point, Color.red);
+            Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.red);
             return true;
         }
         else
         {
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * _distance, Color.green);
+            Debug.DrawRay(ray.origin, ray.direction * _distance, Color.green);
             return false;
         }
     }

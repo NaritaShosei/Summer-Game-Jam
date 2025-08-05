@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +14,7 @@ public class NowCommandText : MonoBehaviour
     private void Start()
     {
         _nowCommandText = GetComponent<Text>();
+        _nowCommandText.text = "";
         _getNowCommandTextFunc = _typing.GetNowCommandFunc();
     }
 }

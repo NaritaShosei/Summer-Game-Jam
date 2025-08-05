@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
 public class CookingTool : MonoBehaviour, ITarget
 {
     [SerializeField] private CookingMethod _cookingMethod;
@@ -22,7 +23,7 @@ public class CookingTool : MonoBehaviour, ITarget
 
     public void Cooking()
     {
-        _cookingManager.RecipeCheck(_foods);
+        _cookingManager.RecipeCheck(_foods,_cookingMethod);
         _foods.Clear();
     }
 

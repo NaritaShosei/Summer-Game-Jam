@@ -11,6 +11,7 @@ public class CookingManager : MonoBehaviour
     public Queue<(RecipeData recipe, string name)> Recipes => _recipes;
     private RecipeViewManager _recipeViewManager;
     private OrderManager _orderManager;
+    [SerializeField] private GameObject _yami;
 
     private void Start()
     {
@@ -22,7 +23,6 @@ public class CookingManager : MonoBehaviour
     {
         _recipes.Enqueue(recipe);
         _recipeViewManager.UpdateViews(_recipes);
-        Debug.LogError(_recipes.Count.ToString());
     }
 
     public void CheckFood(string name)
@@ -36,17 +36,18 @@ public class CookingManager : MonoBehaviour
         }
     }
 
-    public void RecipeCheck(List<string> foods)
+    public void RecipeCheck(List<string> foods, CookingMethod method)
     {
         foreach (var recipe in _orderManager.CookingDictionary.Values)
         {
-            if (ListsEqual(recipe.recipe.Foods.ToList(), foods))
+            if (ListsEqual(recipe.recipe.Foods.ToList(), foods) && recipe.recipe.CookingMethod == method)
             {
                 Debug.Log($"レシピ完成: {recipe.name}");
 
                 if (recipe.recipe.FoodPrefab != null)
                 {
-                    Instantiate(recipe.recipe.FoodPrefab, _spawn.position, Quaternion.identity);
+                    Instantiate(recipe.recipe.FoodPrefab, _spawn.position, Quaternion.Euler(90, 0, 0));
+                    return;
                 }
                 else
                 {
@@ -60,6 +61,7 @@ public class CookingManager : MonoBehaviour
                 Debug.Log($"投入した材料: [{string.Join(", ", foods)}]");
             }
         }
+        Instantiate(_yami, _spawn.position, Quaternion.Euler(90, 0, 0));
     }
     private bool ListsEqual(List<string> a, List<string> b)
     {

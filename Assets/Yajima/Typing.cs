@@ -18,6 +18,7 @@ public class Typing : MonoBehaviour
     {
         _nowCommandList = new List<Arrow>();
         _orderManager = FindAnyObjectByType<OrderManager>();
+        _commandText.text = "";
     }
 
     // Update is called once per frame

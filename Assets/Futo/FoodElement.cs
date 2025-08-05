@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
 public class FoodElement : MonoBehaviour, IFood
 {
     [SerializeField] string _foodName;
@@ -7,7 +8,7 @@ public class FoodElement : MonoBehaviour, IFood
 
     public string GetName()
     {
-        
+
         return _foodName;
     }
 
