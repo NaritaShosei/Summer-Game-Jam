@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6055191446236616835}
   - component: {fileID: 6582141780109750915}
   - component: {fileID: 5823849309106041260}
+  - component: {fileID: -2646872716066169502}
   m_Layer: 0
   m_Name: kare-
   m_TagString: Untagged
@@ -111,3 +112,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _foodName: "\u30AB\u30EC\u30FC"
+--- !u!65 &-2646872716066169502
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5887285205400983548}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 20.43, y: 9.760002, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}
