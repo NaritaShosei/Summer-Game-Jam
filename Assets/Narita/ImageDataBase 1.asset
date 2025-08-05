@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87cc87acfc727fe47903d0fae98e2b50, type: 3}
+  m_Name: ImageDataBase 1
+  m_EditorClassIdentifier: 
+  _imageData:
+  - {fileID: 0}
+  - {fileID: 0}
+  _simmerImage: {fileID: 0}
+  _bakeImage: {fileID: 0}
+  _fryImage: {fileID: 0}
