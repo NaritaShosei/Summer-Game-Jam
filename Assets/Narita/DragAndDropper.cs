@@ -20,7 +20,7 @@ public class DragAndDropper : MonoBehaviour
     {
         if (_isClicked)
         {
-            _dragObject.transform.position = _mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, _distance));
+            _dragObject.transform.position = _mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, _distance, Input.mousePosition.z));
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -63,9 +63,9 @@ public class DragAndDropper : MonoBehaviour
 
         Ray ray = new Ray(worldPos, _mainCamera.transform.forward);
 
-        if (Physics.Raycast(ray, out hit, _distance))
+        if (Physics.Raycast(ray, out hit, 100))// マジックナンバーはよくないよ。マネしないでね。
         {
-            Debug.Log($"Hit: {hit.collider.name} at distance {hit.distance}");
+            Debug.Log($"Hit: {hit.point} at distance {hit.distance}");
             Debug.DrawLine(ray.origin, hit.point, Color.red);
             return true;
         }
