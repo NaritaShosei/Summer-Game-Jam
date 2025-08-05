@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 870d8e09098dc2b489af012aec5a41e8, type: 3}
-  m_Name: ImageData 3
+  m_Name: furu-tu
   m_EditorClassIdentifier: 
-  _name: 
+  _name: "\u30D5\u30EB\u30FC\u30C4"
   _sprite: {fileID: 0}
