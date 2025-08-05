@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: yami
   m_EditorClassIdentifier: 
   _name: "\u95C7"
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 6f7429a35d35c1e4a82e9aeb3360d45b, type: 3}
