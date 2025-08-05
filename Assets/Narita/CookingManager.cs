@@ -34,15 +34,32 @@ public class CookingManager : MonoBehaviour
 
     public void RecipeCheck(List<string> foods)
     {
-        if (_recipes.Count == 0) { return; }
-        if (ListsEqual(_recipes.Peek().recipe.Foods.ToList(), foods))
+        if (_recipes.Count == 0)
         {
-            Debug.Log(_recipes.Peek().name);
-            Instantiate(_recipes.Dequeue().recipe.FoodPrefab, _spawn.position, Quaternion.identity);
-
+            Debug.Log("作るべきレシピがありません");
             return;
         }
-        Debug.Log("何もかもが違う");
+
+        var currentRecipe = _recipes.Peek();
+        if (ListsEqual(currentRecipe.recipe.Foods.ToList(), foods))
+        {
+            Debug.Log($"レシピ完成: {currentRecipe.name}");
+
+            if (currentRecipe.recipe.FoodPrefab != null)
+            {
+                Instantiate(currentRecipe.recipe.FoodPrefab, _spawn.position, Quaternion.identity);
+            }
+            else
+            {
+                Debug.LogError($"料理 {currentRecipe.name} のプレハブが設定されていません");
+            }
+        }
+        else
+        {
+            Debug.Log("レシピと材料が一致しません");
+            Debug.Log($"必要な材料: [{string.Join(", ", currentRecipe.recipe.Foods)}]");
+            Debug.Log($"投入した材料: [{string.Join(", ", foods)}]");
+        }
     }
     private bool ListsEqual(List<string> a, List<string> b)
     {
