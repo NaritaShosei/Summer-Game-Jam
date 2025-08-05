@@ -14,6 +14,18 @@ public class CookingManager : MonoBehaviour
         _recipes.Add(recipe);
     }
 
+    public void CheckFood(string name)
+    {
+        for (int i = _recipes.Count; 0 <= i; i++)
+        {
+            if (_recipes[i].name == name)
+            {
+                _recipes.RemoveAt(i);
+                return;
+            }
+        }
+    }
+
     public void RecipeCheck(List<string> foods)
     {
         foreach (var recipes in _recipes)
