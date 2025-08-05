@@ -35,6 +35,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5497745ed87f7a243aef94a457f645f0, type: 2}
   - {fileID: 11400000, guid: 32919b61dc894b54a9b57e1d9aecfd7b, type: 2}
   - {fileID: 11400000, guid: f777430b8b0bfb84d88232724646de80, type: 2}
-  _simmerImage: {fileID: 21300000, guid: 19ed5faa49d7ebf44a5f26d03af3591b, type: 3}
-  _bakeImage: {fileID: 21300000, guid: 70f42df1cc9abfd41a8888dcd297fe7c, type: 3}
-  _fryImage: {fileID: 21300000, guid: 6a8abe0b16d150d40b03396b7e68de6f, type: 3}
+  _simmerImage: {fileID: 21300000, guid: 1ec24d1a3d43da945b31a5a38268d77d, type: 3}
+  _bakeImage: {fileID: 21300000, guid: 51cc5b20f68071f448e0af7fdead9c5c, type: 3}
+  _fryImage: {fileID: 21300000, guid: 2a0ae2514b14f4147900ecd8360bb2d5, type: 3}

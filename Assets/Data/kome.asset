@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: kome
   m_EditorClassIdentifier: 
   _name: "\u7C73"
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 4df3d76f5c8b8a149a587c31cb064bd5, type: 3}
