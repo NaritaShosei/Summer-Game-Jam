@@ -31,7 +31,7 @@ public class DragAndDropper : MonoBehaviour
                 {
                     _name = food.GetName();
                     _dragObject = food.GetObject();
-
+                    _dragObject.layer = LayerMask.NameToLayer("Ignore Raycast");
                     _isClicked = true;
                     Debug.Log(_name);
                 }
@@ -60,7 +60,7 @@ public class DragAndDropper : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 100))
         {
-            Debug.Log($"Hit: {hit.point} at distance {hit.distance}");
+            Debug.Log($"Hit:{hit.collider.name} {hit.point} at distance {hit.distance}");
             Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.red);
             return true;
         }

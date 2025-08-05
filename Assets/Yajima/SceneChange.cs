@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,10 +21,10 @@ public class SceneChange : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒV[ƒ“ˆÚs‚·‚éŠÖ”
-    /// ƒ{ƒ^ƒ“‚©‚çŒÄ‚Ño‚·‘z’è
+    /// ã‚·ãƒ¼ãƒ³ç§»è¡Œã™ã‚‹é–¢æ•°
+    /// ãƒœã‚¿ãƒ³ã‹ã‚‰å‘¼ã³å‡ºã™æƒ³å®š
     /// </summary>
-    /// <param name="name"> ƒV[ƒ“‚Ì–¼‘O</param>
+    /// <param name="name"> ã‚·ãƒ¼ãƒ³ã®åå‰</param>
     public void ChangeScene(string name)
     {
         if (name != "")
@@ -41,12 +41,12 @@ public class SceneChange : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("ƒV[ƒ“‚Ì–¼‘O‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+            Debug.LogWarning("ã‚·ãƒ¼ãƒ³ã®åå‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
         }
     }
 
     /// <summary>
-    /// ƒtƒF[ƒhƒAƒEƒg‚·‚éŠÖ”
+    /// ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆã™ã‚‹é–¢æ•°
     /// </summary>
     /// <param name="name"></param>
     /// <returns></returns>

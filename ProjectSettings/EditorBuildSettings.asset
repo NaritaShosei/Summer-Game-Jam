@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Okano/TitleScene.unity
+    guid: 800edb0f9fe95194380a57bc060c7ac2
+  - enabled: 1
+    path: Assets/Scenes/Ingame.unity
+    guid: ec5f851320f1c7241b7e9073117b1d8b
+  - enabled: 1
+    path: Assets/Okano/CreditScene.unity
+    guid: 9c85c559c48b4c249850e302dff4e3a0
   m_configObjects: {}

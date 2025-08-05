@@ -52,7 +52,7 @@ public class ChefTask : MonoBehaviour
             {
                 StopCoroutine(_countDownCoroutine);
                 _countDownCoroutine = null;
-                _countDownText.text = "";
+                // _countDownText.text = "";
             }
             _isCountDownNow = false;
         }
@@ -79,13 +79,13 @@ public class ChefTask : MonoBehaviour
             if (_delta <= 0)
             {
                 Debug.Log("TaskOverFlow");
-                _countDownText.text = "";
+                //_countDownText.text = "";
                 _isGameOver = true;
                 yield break;
             }
             else
             {
-                _countDownText.text = _delta.ToString("00.00");
+                // _countDownText.text = _delta.ToString("00.00");
                 yield return null;
             }
         }
