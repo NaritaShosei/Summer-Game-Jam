@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CookingManager : MonoBehaviour
 {
+    [SerializeField] private Transform _spawn;
     private Queue<(RecipeData recipe, string name)> _recipes = new();
     public Queue<(RecipeData recipe, string name)> Recipes => _recipes;
     private RecipeViewManager _recipeViewManager;
@@ -26,6 +27,7 @@ public class CookingManager : MonoBehaviour
         if (_recipes.Peek().name == name)
         {
             _recipes.Dequeue();
+            _recipeViewManager.RemoveView();
             return;
         }
     }
@@ -36,8 +38,8 @@ public class CookingManager : MonoBehaviour
         if (ListsEqual(_recipes.Peek().recipe.Foods.ToList(), foods))
         {
             Debug.Log(_recipes.Peek().name);
-            _recipes.Dequeue();
-            _recipeViewManager.RemoveView();
+            Instantiate(_recipes.Dequeue().recipe.FoodPrefab, _spawn.position, Quaternion.identity);
+
             return;
         }
         Debug.Log("何もかもが違う");
