@@ -1,9 +1,9 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// —¿—l‚Ìƒ^ƒXƒN‚ğŠÇ—‚·‚éƒXƒNƒŠƒvƒg
+/// æ–™ç†äººã®ã‚¿ã‚¹ã‚¯ã‚’ç®¡ç†ã™ã‚‹ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
 /// </summary>
 public class ChefTask : MonoBehaviour
 {
@@ -14,20 +14,20 @@ public class ChefTask : MonoBehaviour
 
     Coroutine _countDownCoroutine;
 
-    /// <summary>ƒJƒEƒ“ƒgƒ_ƒEƒ“‚·‚é‚½‚ß‚ÌŠÔ‚ğŠÇ—‚·‚é•Ï”</summary>
+    /// <summary>ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³ã™ã‚‹ãŸã‚ã®æ™‚é–“ã‚’ç®¡ç†ã™ã‚‹å¤‰æ•°</summary>
     float _delta = 0;
-    /// <summary>ƒ^ƒXƒN‚ªƒI[ƒo[ƒtƒ[‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©</summary>
+    /// <summary>ã‚¿ã‚¹ã‚¯ãŒã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹</summary>
     bool _isTaskOver = false;
-    /// <summary>ƒJƒEƒ“ƒgƒ_ƒEƒ“‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©</summary>
+    /// <summary>ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹</summary>
     bool _isCountDownNow = false;
-    /// <summary>ƒQ[ƒ€ƒI[ƒo[‚©‚Ç‚¤‚©</summary>
+    /// <summary>ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼ã‹ã©ã†ã‹</summary>
     bool _isGameOver = false;
     public bool IsGameOver { get { return _isGameOver; } }
 
     // Update is called once per frame
     void Update()
     {
-        //ƒ^ƒXƒN‚ÌƒI[ƒo[ƒtƒ[‚ğŒŸ’m
+        //ã‚¿ã‚¹ã‚¯ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼ã‚’æ¤œçŸ¥
         if (_cookingManager.Recipes.Count >= _maxTask)
         {
             _isTaskOver = true;
@@ -37,7 +37,7 @@ public class ChefTask : MonoBehaviour
             _isTaskOver = false;
         }
 
-        //ƒ^ƒXƒN‚ªƒI[ƒo[ƒtƒ[‚µ‚½‚çƒJƒEƒ“ƒgƒ_ƒEƒ“ŠJn
+        //ã‚¿ã‚¹ã‚¯ãŒã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼ã—ãŸã‚‰ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³é–‹å§‹
         if (_isTaskOver)
         {
             if (!_isCountDownNow)
@@ -59,15 +59,15 @@ public class ChefTask : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ^ƒXƒN‚ğƒNƒŠƒA‚µ‚½‚É‚·‚éˆ—
-    /// </summary>
-    public void TaskClear()
-    {
-        _cookingManager.Recipes.RemoveAt(0);
-    }
+    ///// ã‚¿ã‚¹ã‚¯ã‚’ã‚¯ãƒªã‚¢ã—ãŸæ™‚ã«ã™ã‚‹å‡¦ç†
+    ///// </summary>
+    //public void TaskClear()
+    //{
+    //    _cookingManager.Recipes.RemoveAt(0);
+    //}
 
     /// <summary>
-    /// ƒJƒEƒ“ƒgƒ_ƒEƒ“‚·‚éŠÖ”
+    /// ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³ã™ã‚‹é–¢æ•°
     /// </summary>
     /// <returns></returns>
     IEnumerator CountDown()
