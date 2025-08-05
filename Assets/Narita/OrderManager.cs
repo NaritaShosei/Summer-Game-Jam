@@ -29,6 +29,8 @@ public class OrderManager : MonoBehaviour
     /// </summary>
     public List<List<Arrow>> Keys { get { return _keys; } }
 
+    public Dictionary<List<Arrow>, (RecipeData recipe, string name)> CookingDictionary => _cookingDictionary;
+
     void Start()
     {
         // 料理管理システムを取得
