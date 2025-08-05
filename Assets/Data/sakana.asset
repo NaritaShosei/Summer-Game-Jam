@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: sakana
   m_EditorClassIdentifier: 
   _name: "\u9B5A"
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 2ee43959e9c849b4daa211a8e660ee80, type: 3}

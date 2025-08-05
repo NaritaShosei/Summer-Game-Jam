@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: komugi
   m_EditorClassIdentifier: 
   _name: "\u5C0F\u9EA6"
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: b566cfe67e1663549b934870783a3872, type: 3}

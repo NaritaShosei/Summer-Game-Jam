@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: furu-tu
   m_EditorClassIdentifier: 
   _name: "\u30D5\u30EB\u30FC\u30C4"
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: ccf88202e8398074fa9dccb702c3459f, type: 3}
