@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ImageDatabase", menuName = "Database/ImageDatabase")]
+//[CreateAssetMenu(fileName = "ImageDatabase", menuName = "Database/ImageDatabase")]
 public class ImageDatabase : ScriptableObject
 {
     [SerializeField] private List<FoodImage> entries;
