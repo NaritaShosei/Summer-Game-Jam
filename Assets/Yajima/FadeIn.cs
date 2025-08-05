@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 /// <summary>
 /// フェードインするイメージに直接アタッチする想定
+/// インゲームの最初
 /// </summary>
 public class FadeIn : MonoBehaviour
 {
