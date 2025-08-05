@@ -2836,7 +2836,7 @@ MonoBehaviour:
       - "\u91CE\u83DC"
       - "\u8089"
       _cookingMethod: 0
-      _foodPrefab: {fileID: 0}
+      _foodPrefab: {fileID: 5887285205400983548, guid: c24a43e294064084cbd026288a5f3632, type: 3}
     _recipeCommand:
       _keyList: 0100000002000000
   - _foodName: "\u30B9\u30BF\u30FC\u30B2\u30A4\u30B8\u30FC\u30D1\u30A4"
@@ -2845,7 +2845,7 @@ MonoBehaviour:
       - "\u5C0F\u9EA6"
       - "\u9B5A"
       _cookingMethod: 1
-      _foodPrefab: {fileID: 0}
+      _foodPrefab: {fileID: 1638439290421472062, guid: 97acef54c6ae021499e68f470e78a8ab, type: 3}
     _recipeCommand:
       _keyList: 0100000003000000
   - _foodName: "\u30AB\u30C4\u4E3C"
@@ -2855,7 +2855,7 @@ MonoBehaviour:
       - "\u8089"
       - "\u5375"
       _cookingMethod: 2
-      _foodPrefab: {fileID: 0}
+      _foodPrefab: {fileID: 5192501311529680454, guid: f39176a3a74b62442923974a98092296, type: 3}
     _recipeCommand:
       _keyList: 010000000300000001000000
   - _foodName: "\u30D7\u30EA\u30F3"
@@ -2874,7 +2874,7 @@ MonoBehaviour:
       - "\u5375"
       - "\u30D5\u30EB\u30FC\u30C4"
       _cookingMethod: 1
-      _foodPrefab: {fileID: 0}
+      _foodPrefab: {fileID: 1891169236638793757, guid: f69a6b3bd902f2446b0894b12bf545f0, type: 3}
     _recipeCommand:
       _keyList: 010000000300000003000000
   - _foodName: "\u30A2\u30E1\u30EA\u30AB\u30F3\u30C9\u30C3\u30AF"
@@ -2883,7 +2883,7 @@ MonoBehaviour:
       - "\u8089"
       - "\u5C0F\u9EA6"
       _cookingMethod: 2
-      _foodPrefab: {fileID: 0}
+      _foodPrefab: {fileID: 3037706688146829632, guid: c959efb3e3cf92349a32ca69356027de, type: 3}
     _recipeCommand:
       _keyList: 010000000300000004000000
   - _foodName: "\u30AA\u30E0\u30E9\u30A4\u30B9"
@@ -3082,6 +3082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeLimit: 60
   _timeText: {fileID: 1942558575}
+  isTimeUp: 0
 --- !u!1001 &1543472770
 PrefabInstance:
   m_ObjectHideFlags: 0
