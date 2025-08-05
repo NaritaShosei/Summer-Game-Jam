@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3758256306048976675}
   - component: {fileID: 8328311676581007522}
   - component: {fileID: 4725680812917844071}
+  - component: {fileID: -5997626667011248977}
+  - component: {fileID: 20928795439851022}
   m_Layer: 0
   m_Name: katudon
   m_TagString: Untagged
@@ -97,3 +99,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-5997626667011248977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192501311529680454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e4c648e50198e743924e19c4e49b710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _foodName: "\u30AB\u30C4\u4E3C"
+--- !u!65 &20928795439851022
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192501311529680454}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 32.669846, y: 24.630007, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}
