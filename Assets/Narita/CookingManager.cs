@@ -6,35 +6,39 @@ using UnityEngine;
 
 public class CookingManager : MonoBehaviour
 {
-    private List<(RecipeData recipe, string name)> _recipes = new();
-    public List<(RecipeData recipe, string name)> Recipes => _recipes;
+    private Queue<(RecipeData recipe, string name)> _recipes = new();
+    public Queue<(RecipeData recipe, string name)> Recipes => _recipes;
+    private RecipeViewManager _recipeViewManager;
+
+    private void Start()
+    {
+        _recipeViewManager = FindAnyObjectByType<RecipeViewManager>();
+    }
 
     public void AddRecipe((RecipeData recipe, string name) recipe)
     {
-        _recipes.Add(recipe);
+        _recipes.Enqueue(recipe);
+        _recipeViewManager.AddView(recipe);
     }
 
     public void CheckFood(string name)
     {
-        for (int i = _recipes.Count; 0 <= i; i++)
+        if (_recipes.Peek().name == name)
         {
-            if (_recipes[i].name == name)
-            {
-                _recipes.RemoveAt(i);
-                return;
-            }
+            _recipes.Dequeue();
+            return;
         }
     }
 
     public void RecipeCheck(List<string> foods)
     {
-        foreach (var recipes in _recipes)
+        if (_recipes.Count == 0) { return; }
+        if (ListsEqual(_recipes.Peek().recipe.Foods.ToList(), foods))
         {
-            if (ListsEqual(recipes.recipe.Foods.ToList(), foods))
-            {
-                Debug.Log(recipes.name);
-                return;
-            }
+            Debug.Log(_recipes.Peek().name);
+            _recipes.Dequeue();
+            _recipeViewManager.RemoveView();
+            return;
         }
         Debug.Log("何もかもが違う");
     }
